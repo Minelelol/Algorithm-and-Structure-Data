@@ -5,13 +5,16 @@ using namespace std;
 
 int main() {
     double r, luas;
+    // infinite loop
+    while (true) {
+        cout << "Masukkan jari-jari lingkaran: ";
 
-    cout << "Masukkan jari-jari lingkaran: ";
-    cin >> r;
-
-    if (cin.fail()) {
+        if (cin >> r) {
+            cout << endl; break;
+        }
         cerr << "Error: input harus berupa angka!" << endl;
-        return 1;
+        cin.clear();                // reset status
+        cin.ignore(10000, '\n');    // clear whatever is left in the buffer
     }
 
     luas = M_PI * r * r;
